@@ -59,7 +59,7 @@ string comp(string m){
 	 else if (m == "D-1")
 		 rs = "0001110";
 	 else if (m == "A-1")
-		 rs = "110010";
+		 rs = "0110010";
 	 else if (m == "D+A")
 		 rs = "0000010";
 	 else if (m == "D-A")
