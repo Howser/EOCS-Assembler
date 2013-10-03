@@ -32,13 +32,18 @@ void Parser::advance(){
 CommandType Parser::commandType(){
 	if (currentCommand->at(0) == '@'){
 		return A_COMMAND;
-	} else {
+	} else if (currentCommand->at(0) == '('){
+		return L_COMMAND;
+	}else {
 		return C_COMMAND;
 	}
 }
 
 string Parser::symbol(){
-	return currentCommand->substr(1, currentCommand->size());
+	if (commandType() == A_COMMAND)
+		return currentCommand->substr(1, currentCommand->size()-1);
+	else 
+		return currentCommand->substr(1, currentCommand->size()-2);
 }
 
 string Parser::dest(){
@@ -65,6 +70,10 @@ string Parser::jump(){
 		return currentCommand->substr(s+1);
 }
 
+void Parser::reset(){
+	currentCommand = commands.begin();
+}
+
 void Parser::removeWhitespace(string& s){
 	string::iterator i = s.begin();
 	string newString;
@@ -73,7 +82,7 @@ void Parser::removeWhitespace(string& s){
 			if (*(i+1) == '/')
 				break;
 		}
-		if (*i != ' '){
+		if (*i != ' ' && *i != '\n'){
 			newString.push_back(*i);
 		}
 		++i;

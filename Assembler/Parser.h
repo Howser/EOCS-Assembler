@@ -24,9 +24,10 @@ public:
 	std::string dest();			// Returns the dest mnemonic in the current C-command. Called only when commandType is C command
 	std::string comp();			// Returns the comp mnemonic in the current C-command. Called only when commandType is C command
 	std::string jump();			// Returns the jump mnemonic in the current C-command. Called only when commandType is C command
+	void reset();				// Sets the currentCommand to the beginning to allow for multiple passes of the code
 private:
 	// Member functions
-	void removeWhitespace(std::string& s); 
+	void removeWhitespace(std::string& s); // removes whitespace and comments :P
 
 	// member variables
 	std::vector<std::string> commands;
