@@ -1,4 +1,4 @@
-/* Source file for code module 
+/* Code module source file 
 
 This module is implemented as functions only instead of a class
 Because there aren't any member variables or state to keep track of

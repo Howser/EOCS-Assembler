@@ -43,11 +43,10 @@ string Parser::symbol(){
 
 string Parser::dest(){
 	size_t s = currentCommand->find("=");
-	if (s == string::npos){
+	if (s == string::npos)
 		return "null";
-	} else {
+	else 
 		return currentCommand->substr(0, s);
-	}
 }
 
 string Parser::comp(){
@@ -60,11 +59,10 @@ string Parser::comp(){
 
 string Parser::jump(){
 	size_t s = currentCommand->find(";");
-	if (s == string::npos){
+	if (s == string::npos)
 		return "null";
-	} else {
+	else 
 		return currentCommand->substr(s+1);
-	}
 }
 
 void Parser::removeWhitespace(string& s){
